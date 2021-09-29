@@ -1,23 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
+import RecipesList from "./RecipesList";
 
 function App() {
   const API_KEY = "ce6473422bf44e3f8b11c98c2e751ce6";
-  const apiURL = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=apples,+flour,+sugar&number=2`;
+  
 
-  useEffect(() => {
-    getRecipes();
-  }, []);
+  const [recipes, setRecipes] = useState(null);
+  const [ingredients, setIngredients] = useState("");
 
-  const getRecipes = async () => {
-    const response = await fetch(`${apiURL}`);
-    const data = await response.json();
-    console.log(data);
-  };
+  function handleChange(e) {
+    setIngredients(e.target.value);
+  }
+
+  function getRecipes() {
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${ingredients}&number=10`)
+    .then((response) => response.json())
+    .then((data) => {
+      setRecipes(data);
+      console.log(data);
+    })
+    .catch(() => {
+    console.log("error");  
+    });
+  } 
 
   return (
     <div className="App">
-      <h1>Let's Cook This Shit App!!!</h1>
+      <h1>Cookin' Up</h1>
+      <h2>(something good)</h2>
+      <section className="form">
+        <input
+          type="text"
+          placeholder="Please, add your ingredients..."
+          onChange={handleChange}
+        />
+      </section>
+      <button onClick={getRecipes}>Let's cook!</button>
     </div>
   );
 }

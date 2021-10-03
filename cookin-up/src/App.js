@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
 import RecipesList from "./RecipesList";
+import About from "./About";
 
 function App() {
   const API_KEY = "ce6473422bf44e3f8b11c98c2e751ce6";
 
   const [recipes, setRecipes] = useState(null);
   const [ingredients, setIngredients] = useState("");
+  const [moreRecipes, setMoreRecipes] = useState(0);
 
   function handleChange(e) {
     setIngredients(e.target.value);
@@ -14,7 +16,7 @@ function App() {
 
   function getRecipes() {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${ingredients}&number=10&ranking=2`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&number=10&sort=min-missing-ingredients&addRecipeInformation=true&fillIngredients=true&ignorePantry=flase&offset=${moreRecipes}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -25,6 +27,11 @@ function App() {
         console.log("error");
       });
   }
+
+function getMoreRecipes() {
+  let i = 0;
+  setMoreRecipes(i += 10);
+}
 
   return (
     <div className="App">
@@ -39,6 +46,8 @@ function App() {
       </section>
       <button onClick={getRecipes}>Let's cook!</button>
       {recipes && <RecipesList recipes={recipes} />}
+      {recipes && <button onClick={getMoreRecipes}>Get more recipes</button>}
+      <About />
     </div>
   );
 }

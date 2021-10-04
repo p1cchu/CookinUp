@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
 import RecipesList from "./RecipesList";
-import About from "./About";
 
 function App() {
   const API_KEY = "ce6473422bf44e3f8b11c98c2e751ce6";
@@ -30,7 +30,7 @@ function App() {
   }
 
   function handleKeyPress(e) {
-    if(e.key === 'Enter') {
+    if (e.key === "Enter") {
       getRecipes();
     }
   }
@@ -50,7 +50,9 @@ function App() {
       <button onClick={getRecipes}>Let's cook!</button>
       {recipes && <RecipesList recipes={recipes} />}
       {recipes && <button onClick={getRecipes}>Get even more recipes!</button>}
-      <About />
+      <Link to="/about">
+        <h2>About</h2>
+      </Link>
     </div>
   );
 }

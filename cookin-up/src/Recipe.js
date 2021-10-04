@@ -12,6 +12,7 @@ export default function Recipe({ recipe }) {
           ) 
         })}
       </ul>
+      <a href={recipe.sourceUrl} target="_blank">Get full recipe</a>
     </div>
   );
 }

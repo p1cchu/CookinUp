@@ -21,6 +21,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setRecipes(data);
+        setMoreRecipes(moreRecipes + 10);
         console.log(data);
       })
       .catch(() => {
@@ -28,10 +29,11 @@ function App() {
       });
   }
 
-function getMoreRecipes() {
-  let i = 0;
-  setMoreRecipes(i += 10);
-}
+  function handleKeyPress(e) {
+    if(e.key === 'Enter') {
+      getRecipes();
+    }
+  }
 
   return (
     <div className="App">
@@ -42,11 +44,12 @@ function getMoreRecipes() {
           type="text"
           placeholder="Please, add your ingredients..."
           onChange={handleChange}
+          onKeyPress={handleKeyPress}
         />
       </section>
       <button onClick={getRecipes}>Let's cook!</button>
       {recipes && <RecipesList recipes={recipes} />}
-      {recipes && <button onClick={getMoreRecipes}>Get more recipes</button>}
+      {recipes && <button onClick={getRecipes}>Get even more recipes!</button>}
       <About />
     </div>
   );

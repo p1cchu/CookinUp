@@ -1,5 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Typography,
+  AppBar,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+  Button,
+} from "@material-ui/core";
+import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
 import "./App.css";
 import RecipesList from "./RecipesList";
 
@@ -37,22 +51,67 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Cookin' Up</h1>
-      <h2>(something good)</h2>
+      <CssBaseline />
+      <AppBar
+        className="AppBar"
+        position="sticky"
+        style={{ backgroundColor: "pink", color: "black" }}
+      >
+        <Toolbar className="Toolbar">
+          <Typography
+            variant="h4"
+            className="header"
+            style={{ fontFamily: "Lobster" }}
+          >
+            Cookin' Up (something good...)
+          </Typography>
+          <Link to="/about" style={{ textDecoration: "none" }}>
+            <Button
+              className="aboutButton"
+              variant="contained"
+              color="secondary"
+              style={{margin: "1em"}}
+            >
+              About
+            </Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
+
       <section className="form">
         <input
           type="text"
-          placeholder="Please, add your ingredients..."
+          placeholder="Add your ingredients..."
           onChange={handleChange}
           onKeyPress={handleKeyPress}
+          style={{padding: "0 2em"}}
         />
+      
+      <Button
+      
+        onClick={getRecipes}
+        variant="contained"
+        color="secondary"
+        startIcon={<DinnerDiningIcon fontSize="large" />}
+        style={{marginLeft: "2em", padding: "1em"}}
+        size="large"
+      >
+        Let's cook!
+      </Button >
       </section>
-      <button onClick={getRecipes}>Let's cook!</button>
+
+      <div className="recipesList">
       {recipes && <RecipesList recipes={recipes} />}
-      {recipes && <button onClick={getRecipes}>Get even more recipes!</button>}
-      <Link to="/about">
-        <h2>About</h2>
-      </Link>
+      
+      
+     </div>
+     {recipes && (<div style={{display: "flex", justifyContent: "center", marginBottom: "5em", marginTop: "2em"}}>
+        <Button onClick={getRecipes} variant="contained" color="secondary" size="large">
+          Get even more recipes!
+        </Button>
+        </div>
+      )}
+       
     </div>
   );
 }

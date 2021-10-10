@@ -1,13 +1,13 @@
 .App {
   height: 100vh;
   box-sizing: border-box;
-  background-image: url(red-checkered-tablecloth-texture-background.jpg);
+  background-image: url(tablecloth.jpg);
   background-repeat: repeat;
 }
 
 .form {
   margin-top: 10em;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,11 +39,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: url(red-checkered-tablecloth-texture-background.jpg);
+  background-image: url(tablecloth.jpg);
 }
 
 .About {
-    background-image: url(red-checkered-tablecloth-texture-background.jpg);
+    background-image: url(tablecloth.jpg);
     height: 100vh;
 }
 

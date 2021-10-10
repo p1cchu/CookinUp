@@ -1,41 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Typography,
-  AppBar,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  CssBaseline,
-  Grid,
-  Toolbar,
-  Container,
-  Button,
-} from "@material-ui/core";
+import { Typography, AppBar, Toolbar, Button } from "@material-ui/core";
 import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
 import "./App.css";
 
 export default function About() {
   return (
-    <div className="App">
+    <div className="About">
       <AppBar
         className="AppBar"
         position="sticky"
         style={{ backgroundColor: "pink", color: "black" }}
       >
         <Toolbar className="Toolbar">
+        <Link to="/" style={{ textDecoration: "none", color: "black"}}>
           <Typography
             variant="h4"
             className="header"
             style={{ fontFamily: "Lobster" }}
           >
-            Cookin' Up (something good...)
+            Cookin' Up
           </Typography>
+          </Link>
           <Link to="/" style={{ textDecoration: "none" }}>
             <Button
               className="aboutButton"
-              variant="contained"
+              variant="outlined"
               color="secondary"
             >
               Return to home screen
@@ -43,11 +33,12 @@ export default function About() {
           </Link>
         </Toolbar>
       </AppBar>
+      <div className="about-text">
       <Typography
         variant="h4"
         color="initial"
         align="center"
-        style={{ padding: "0.5em" }}
+        style={{ margin: "2.5em", paddingTop:"0.1em" }}
       >
         <p>
           Getting hungry? Wanna cook something but don't have any ideas? <br />
@@ -59,7 +50,7 @@ export default function About() {
         variant="h5"
         color="initial"
         align="justify"
-        style={{ padding: "0 0.5em" }}
+        style={{ padding: "0 2em",}}
       >
         <p>
           Cookin' Up is meant to help you find recipes that wil use ingredients
@@ -73,13 +64,20 @@ export default function About() {
           think what you can still make of them. Some very tasty recipes are
           just one click away from you!
         </p>
-<Typography variant="body1" color="initial" align="center" style={{padding: "0.5em"}}><p>
-          This app is made for educational purpose only, it's not meant for any
-          commercial use.
-        </p>
-        <p>Copyright 2021 p1cchu.</p></Typography>
-        
+        <Typography
+          variant="body1"
+          color="initial"
+          align="center"
+          style={{ padding: "0.5em"}}
+        >
+          <p>
+            This app is made for educational purpose only, it's not meant for
+            any commercial use.
+          </p>
+          <p>Copyright 2021 p1cchu.</p>
+        </Typography>
       </Typography>
+    </div>
     </div>
   );
 }

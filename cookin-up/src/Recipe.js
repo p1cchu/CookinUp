@@ -1,31 +1,31 @@
 import React from "react";
 import {
   Typography,
-  AppBar,
-  Card,
-  CardActions,
   CardContent,
   CardMedia,
-  CssBaseline,
-  Grid,
-  Toolbar,
   Container,
   Button,
+  Link,
 } from "@material-ui/core";
 import "./App.css";
 
 export default function Recipe({ recipe }) {
   return (
     <>
-      <Container maxWidth="xs" >
-        <CardMedia title="recipe" />
-        <CardContent>
-        <img src={recipe.image} alt="recipe"/>
-          <Typography variant="h4" color="initial">
-            {recipe.title}
-          </Typography>
+      <Container maxWidth="xs">
+        <CardMedia title="recipe" classname="recipe"/>
+        <CardContent style={{backgroundColor: "white", marginBottom: "2em", boxShadow: "5px 2px 20px black"}}>
+          <img src={recipe.image} alt="recipe" />
+          <Link
+            href={recipe.sourceUrl}
+            target="_blank"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <Typography variant="h4" color="initial">
+              {recipe.title}
+            </Typography>
+          </Link>
           <Typography variant="body1" color="initial">
-            
             <Typography
               variant="h5"
               color="initial"
@@ -39,14 +39,6 @@ export default function Recipe({ recipe }) {
                 return <li key={el.id}>{el.name}</li>;
               })}
             </ul>
-            <Button
-              href={recipe.sourceUrl}
-              target="_blank"
-              variant="contained"
-              color="secondary"
-            >
-              Get full recipe
-            </Button>
           </Typography>
         </CardContent>
       </Container>

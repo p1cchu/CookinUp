@@ -3,14 +3,8 @@ import { Link } from "react-router-dom";
 import {
   Typography,
   AppBar,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
   CssBaseline,
-  Grid,
   Toolbar,
-  Container,
   Button,
 } from "@material-ui/core";
 import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
@@ -58,19 +52,21 @@ function App() {
         style={{ backgroundColor: "pink", color: "black" }}
       >
         <Toolbar className="Toolbar">
-          <Typography
-            variant="h4"
-            className="header"
-            style={{ fontFamily: "Lobster" }}
-          >
-            Cookin' Up (something good...)
-          </Typography>
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <Typography
+              variant="h4"
+              className="header"
+              style={{ fontFamily: "Lobster" }}
+            >
+              Cookin' Up
+            </Typography>
+          </Link>
           <Link to="/about" style={{ textDecoration: "none" }}>
             <Button
               className="aboutButton"
-              variant="contained"
+              variant="outlined"
               color="secondary"
-              style={{margin: "1em"}}
+              style={{ margin: "1em" }}
             >
               About
             </Button>
@@ -80,38 +76,43 @@ function App() {
 
       <section className="form">
         <input
+          className="input"
           type="text"
           placeholder="Add your ingredients..."
           onChange={handleChange}
           onKeyPress={handleKeyPress}
-          style={{padding: "0 2em"}}
         />
-      
-      <Button
-      
-        onClick={getRecipes}
-        variant="contained"
-        color="secondary"
-        startIcon={<DinnerDiningIcon fontSize="large" />}
-        style={{marginLeft: "2em", padding: "1em"}}
-        size="large"
-      >
-        Let's cook!
-      </Button >
+        <Button
+          className="cta-btn"
+          onClick={getRecipes}
+          variant="contained"
+          color="secondary"
+          startIcon={<DinnerDiningIcon fontSize="large" />}
+          size="large"
+          >
+          Let's cook!
+        </Button>
       </section>
 
-      <div className="recipesList">
-      {recipes && <RecipesList recipes={recipes} />}
       
-      
-     </div>
-     {recipes && (<div style={{display: "flex", justifyContent: "center", marginBottom: "5em", marginTop: "2em"}}>
-        <Button onClick={getRecipes} variant="contained" color="secondary" size="large">
-          Get even more recipes!
-        </Button>
+
+      <div className="recipesList" id="list-top">
+        {recipes && <RecipesList recipes={recipes} />}
+      </div>
+      {recipes && (
+        <div className="recipesList" style={{ display: "flex", justifyContent: "center"}}>
+          <Button
+            onClick={getRecipes}
+            variant="contained"
+            color="secondary"
+            size="large"
+            href="#list-top"
+            style={{ marginBottom: "3em"}}
+          >
+            Get even more recipes!
+          </Button>
         </div>
       )}
-       
     </div>
   );
 }

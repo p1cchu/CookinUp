@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Typography, AppBar, Toolbar, Button } from "@material-ui/core";
 import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
-import "./App.css";
 
 export default function About() {
   return (

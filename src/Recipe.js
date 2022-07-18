@@ -7,7 +7,6 @@ import {
   Button,
   Link,
 } from "@material-ui/core";
-import "./App.css";
 
 export default function Recipe({ recipe }) {
   return (

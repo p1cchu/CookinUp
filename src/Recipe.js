@@ -2,45 +2,46 @@ import React from "react";
 import {
   Typography,
   CardContent,
+  Card,
   CardMedia,
-  Container,
-  Button,
   Link,
+  Grow,
 } from "@material-ui/core";
 
 export default function Recipe({ recipe }) {
   return (
     <>
-      <Container maxWidth="xs">
-        <CardMedia title="recipe" classname="recipe"/>
-        <CardContent style={{backgroundColor: "white", marginBottom: "2em", boxShadow: "5px 2px 20px black"}}>
-          <img src={recipe.image} alt="recipe" />
-          <Link
-            href={recipe.sourceUrl}
-            target="_blank"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <Typography variant="h4" color="initial">
-              {recipe.title}
-            </Typography>
-          </Link>
-          <Typography variant="body1" color="initial">
-            <Typography
-              variant="h5"
-              color="initial"
-              style={{ padding: "0.5em" }}
+      <Grow in={true} appear={true} timeout="auto">
+        <Card>
+          <CardMedia component="img" image={recipe.image} />
+          <CardContent>
+            <Link
+              href={recipe.sourceUrl}
+              target="_blank"
+              style={{ textDecoration: "none", color: "black" }}
             >
-              Missing ingredients:{" "}
-            </Typography>
+              <Typography variant="h4" color="initial">
+                {recipe.title}
+              </Typography>
+            </Link>
+            <Typography variant="body1" color="initial">
+              <Typography
+                variant="h5"
+                color="initial"
+                style={{ padding: "0.5em" }}
+              >
+                Missing ingredients:{" "}
+              </Typography>
 
-            <ul>
-              {recipe.missedIngredients.map((el) => {
-                return <li key={el.id}>{el.name}</li>;
-              })}
-            </ul>
-          </Typography>
-        </CardContent>
-      </Container>
+              <ul>
+                {recipe.missedIngredients.map((el) => {
+                  return <li key={el.id}>{el.name}</li>;
+                })}
+              </ul>
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grow>
     </>
   );
 }

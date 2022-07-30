@@ -1,33 +1,28 @@
 .App {
   height: 100vh;
   box-sizing: border-box;
-  background-image: url(tablecloth.jpg);
+  background-image: url(../assets/tablecloth.jpg);
   background-repeat: repeat;
 }
 
 .form {
   margin-top: 10em;
   margin-bottom: 2em;
+  padding: 5em;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
 }
 
-.cta-btn {
-  width: 12em;
-  height: 5em;
-  margin: 2em;
-}
-
-.input {
-  max-width: 20em;
-  padding: 1.5em 4em;
-  margin: 2em;
-  border: 5px dotted;
-  border-color: tomato;
-  box-shadow: 5px 5px 10px tomato;
-}
+/* .input { */
+/* max-width: 20em; */
+/* padding: 1.5em 4em; */
+/* padding: 10em; */
+/* border: 5px dotted; */
+/* border-color: tomato; */
+/* box-shadow: 5px 5px 10px tomato; */
+/* } */
 
 .Toolbar {
   display: flex;
@@ -36,17 +31,21 @@
 }
 
 .recipesList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-image: url(tablecloth.jpg);
+  background-image: url(../assets/tablecloth.jpg);
 }
 
 .About {
-    background-image: url(tablecloth.jpg);
-    height: 100vh;
+  background-image: url(../assets/tablecloth.jpg);
+  height: 100vh;
 }
 
 .about-text {
-    background: rgba(255, 255, 255, 0.884);
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
 }

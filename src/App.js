@@ -6,6 +6,10 @@ import {
   CssBaseline,
   Toolbar,
   Button,
+  Paper,
+  Container,
+  TextField,
+  Grow,
 } from "@material-ui/core";
 import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
 import "./App.css";
@@ -47,7 +51,6 @@ function App() {
     <div className="App">
       <CssBaseline />
       <AppBar
-        className="AppBar"
         position="sticky"
         style={{ backgroundColor: "pink", color: "black" }}
       >
@@ -63,7 +66,6 @@ function App() {
           </Link>
           <Link to="/about" style={{ textDecoration: "none" }}>
             <Button
-              className="aboutButton"
               variant="outlined"
               color="secondary"
               style={{ margin: "1em" }}
@@ -73,41 +75,60 @@ function App() {
           </Link>
         </Toolbar>
       </AppBar>
+      <Container maxWidth="sm">
+        <Grow in={true} appear={true} timeout="auto">
+          <Paper className="form" elevation={20} style={{ height: "25em" }}>
+            <Typography variant="h5">
+              Enter your ingredients separated by comma (eg. "first, second,
+              etc."):
+            </Typography>
+            <TextField
+              fullWidth
+              id="outlined-basic"
+              label="Add ingredients..."
+              variant="outlined"
+              color="secondary"
+              size="large"
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+            />
 
-      <section className="form">
-        <input
-          className="input"
-          type="text"
-          placeholder="Add your ingredients..."
-          onChange={handleChange}
-          onKeyPress={handleKeyPress}
-        />
-        <Button
-          className="cta-btn"
-          onClick={getRecipes}
-          variant="contained"
-          color="secondary"
-          startIcon={<DinnerDiningIcon fontSize="large" />}
-          size="large"
-          >
-          Let's cook!
-        </Button>
-      </section>
+            {/* <input */}
+            {/* className="input" */}
+            {/* type="text" */}
+            {/* placeholder="Add your ingredients..." */}
+            {/* onChange={handleChange} */}
+            {/* onKeyPress={handleKeyPress} */}
+            {/* /> */}
 
-      
+            <Button
+              onClick={getRecipes}
+              variant="contained"
+              color="secondary"
+              startIcon={<DinnerDiningIcon fontSize="large" />}
+              size="large"
+            >
+              Let's cook!
+            </Button>
+          </Paper>
+        </Grow>
+      </Container>
 
       <div className="recipesList" id="list-top">
         {recipes && <RecipesList recipes={recipes} />}
       </div>
       {recipes && (
-        <div className="recipesList" style={{ display: "flex", justifyContent: "center"}}>
+        <div
+          className="recipesList"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <Button
             onClick={getRecipes}
             variant="contained"
             color="secondary"
             size="large"
             href="#list-top"
-            style={{ marginBottom: "3em"}}
+            style={{ marginBottom: "3em" }}
           >
             Get even more recipes!
           </Button>

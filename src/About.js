@@ -81,9 +81,9 @@ export default function About() {
                 for any commercial use.
               </Typography>
               <Typography variant="body2" color="initial" align="center" style={{fontFamily: "Rock Salt"}}>
-                Copyright 2022{" "}
+                Copyright 2022<br/>
                 <a href="http://github.com/p1cchu" target="_blank">
-                  -=p1cchu=-
+                  p1cchu
                 </a>
                 .
               </Typography>

@@ -20,15 +20,15 @@ export default function Recipe({ recipe }) {
               target="_blank"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <Typography variant="h4" color="initial">
+              <Typography variant="h4" color="initial" style={{ fontFamily: "Rock Salt" }}>
                 {recipe.title}
               </Typography>
             </Link>
-            <Typography variant="body1" color="initial">
+            <Typography variant="body1" color="initial" style={{ fontFamily: "Beth Ellen" }}>
               <Typography
                 variant="h5"
                 color="initial"
-                style={{ padding: "0.5em" }}
+                style={{ padding: "0.5em", fontFamily: "Beth Ellen" }}
               >
                 Missing ingredients:{" "}
               </Typography>

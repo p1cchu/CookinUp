@@ -8,13 +8,14 @@ import {
   Paper,
   Container,
   Grow,
-  CssBaseline
+  CssBaseline,
 } from "@material-ui/core";
 
 export default function About() {
   return (
     <div className="About">
-      <CssBaseline/>
+      <CssBaseline />
+
       <AppBar
         position="sticky"
         style={{ backgroundColor: "pink", color: "black" }}
@@ -31,7 +32,7 @@ export default function About() {
           </Link>
           <Link to="/" style={{ textDecoration: "none" }}>
             <Button variant="outlined" color="secondary">
-              Return to home screen
+              Home
             </Button>
           </Link>
         </Toolbar>
@@ -40,25 +41,23 @@ export default function About() {
       <div className="about-text">
         <Container maxWidth="md">
           <Grow in={true} appear={true} timeout="auto">
-            <Paper elevation={20} style={{ padding: "3em", bottom: "200px" }}>
+            <Paper elevation={20} style={{ padding: "3em" }}>
               <Typography
                 variant="h5"
                 color="initial"
                 align="center"
-                // style={{ margin: "2.5em", paddingTop:"0.1em" }}
+                style={{ paddingBottom: "1em", fontFamily: "Rock Salt" }}
               >
-                <p>
-                  Getting hungry? Wanna cook something but don't have any ideas?{" "}
-                  <br />
-                  Nearest shop is in a galaxy far far away...? You're in the
-                  right place! <br />{" "}
-                </p>
+                Getting hungry? Wanna cook something but don't have any ideas?{" "}
+                <br />
+                Nearest shop is in a galaxy far far away...? You're in the right
+                place! <br />{" "}
               </Typography>
               <Typography
                 variant="body1"
                 color="initial"
                 align="justify"
-                // style={{ padding: "0 2em",}}
+                style={{ paddingBottom: "1em", fontFamily: "Beth Ellen"}}
               >
                 Cookin' Up is meant to help you find recipes that wil use
                 ingredients you already have in your home. Just place your
@@ -71,24 +70,22 @@ export default function About() {
                 Before you throw away any leftover food ingredients, think what
                 you can still make of them. Some very tasty recipes are just one
                 click away from you!
-                <Typography
-                  variant="body2"
-                  color="initial"
-                  align="center"
-                  // style={{ padding: "0.5em"}}
-                >
-                  <p>
-                    This app is made for educational purpose only, it's not
-                    meant for any commercial use.
-                  </p>
-                  <p>
-                    Copyright 2022{" "}
-                    <a href="http://github.com/p1cchu" target="_blank">
-                      p1cchu
-                    </a>
-                    .
-                  </p>
-                </Typography>
+              </Typography>
+              <Typography
+                variant="body2"
+                color="initial"
+                align="center"
+                style={{ paddingBottom: "1em", fontFamily: "Beth Ellen"}}
+              >
+                This app is made for educational purpose only, it's not meant
+                for any commercial use.
+              </Typography>
+              <Typography variant="body2" color="initial" align="center" style={{fontFamily: "Rock Salt"}}>
+                Copyright 2022{" "}
+                <a href="http://github.com/p1cchu" target="_blank">
+                  -=p1cchu=-
+                </a>
+                .
               </Typography>
             </Paper>
           </Grow>

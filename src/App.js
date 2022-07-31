@@ -50,6 +50,7 @@ function App() {
   return (
     <div className="App">
       <CssBaseline />
+
       <AppBar
         position="sticky"
         style={{ backgroundColor: "pink", color: "black" }}
@@ -65,48 +66,37 @@ function App() {
             </Typography>
           </Link>
           <Link to="/about" style={{ textDecoration: "none" }}>
-            <Button
-              variant="outlined"
-              color="secondary"
-              style={{ margin: "1em" }}
-            >
+            <Button variant="outlined" color="secondary">
               About
             </Button>
           </Link>
         </Toolbar>
       </AppBar>
+
       <Container maxWidth="sm">
         <Grow in={true} appear={true} timeout="auto">
-          <Paper className="form" elevation={20} style={{ height: "25em" }}>
-            <Typography variant="h5">
-              Enter your ingredients separated by comma (eg. "first, second,
+          <Paper className="form" elevation={20} style={{ height: "30em" }}>
+            <Typography variant="h5" align="center" style={{ fontFamily: "Rock Salt" }}>
+              Enter your ingredients separated by comma (eg. "first ingredient, second,
               etc."):
             </Typography>
             <TextField
               fullWidth
               id="outlined-basic"
-              label="Add ingredients..."
               variant="outlined"
               color="secondary"
               size="large"
+              style={{ marginTop: "1em" }}
               onChange={handleChange}
               onKeyPress={handleKeyPress}
             />
-
-            {/* <input */}
-            {/* className="input" */}
-            {/* type="text" */}
-            {/* placeholder="Add your ingredients..." */}
-            {/* onChange={handleChange} */}
-            {/* onKeyPress={handleKeyPress} */}
-            {/* /> */}
-
             <Button
               onClick={getRecipes}
               variant="contained"
               color="secondary"
               startIcon={<DinnerDiningIcon fontSize="large" />}
               size="large"
+              style={{ margin: "1em 0 1em 0" }}
             >
               Let's cook!
             </Button>

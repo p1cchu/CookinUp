@@ -1,28 +1,17 @@
 .App {
   height: 100vh;
-  box-sizing: border-box;
   background-image: url(../assets/tablecloth.jpg);
-  background-repeat: repeat;
 }
 
 .form {
   margin-top: 10em;
   margin-bottom: 2em;
-  padding: 5em;
+  padding: 3em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
-
-/* .input { */
-/* max-width: 20em; */
-/* padding: 1.5em 4em; */
-/* padding: 10em; */
-/* border: 5px dotted; */
-/* border-color: tomato; */
-/* box-shadow: 5px 5px 10px tomato; */
-/* } */
 
 .Toolbar {
   display: flex;
@@ -35,15 +24,13 @@
 }
 
 .About {
+  height: auto;
+  min-height: 100vh;
   background-image: url(../assets/tablecloth.jpg);
-  height: 100vh;
 }
 
 .about-text {
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 10em;
 }
 
 a {

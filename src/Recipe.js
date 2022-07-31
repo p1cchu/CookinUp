@@ -12,19 +12,21 @@ export default function Recipe({ recipe }) {
   return (
     <>
       <Grow in={true} appear={true} timeout="auto">
-        <Card>
-          <CardMedia component="img" image={recipe.image} />
-          <CardContent>
-            <Link
-              href={recipe.sourceUrl}
-              target="_blank"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <Typography variant="h4" color="initial" style={{ fontFamily: "Rock Salt" }}>
+        <Link
+          href={recipe.sourceUrl}
+          target="_blank"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Card>
+            <CardMedia component="img" image={recipe.image} />
+            <CardContent>
+              <Typography
+                variant="h4"
+                color="initial"
+                style={{ fontFamily: "Rock Salt" }}
+              >
                 {recipe.title}
               </Typography>
-            </Link>
-            <Typography variant="body1" color="initial" style={{ fontFamily: "Beth Ellen" }}>
               <Typography
                 variant="h5"
                 color="initial"
@@ -33,14 +35,20 @@ export default function Recipe({ recipe }) {
                 Missing ingredients:{" "}
               </Typography>
 
-              <ul>
-                {recipe.missedIngredients.map((el) => {
-                  return <li key={el.id}>{el.name}</li>;
-                })}
-              </ul>
-            </Typography>
-          </CardContent>
-        </Card>
+              <Typography
+                variant="h6"
+                color="initial"
+                style={{ fontFamily: "Beth Ellen" }}
+              >
+                <ul>
+                  {recipe.missedIngredients.map((el) => {
+                    return <li key={el.id}>{el.name}</li>;
+                  })}
+                </ul>
+              </Typography>
+            </CardContent>
+          </Card>
+        </Link>
       </Grow>
     </>
   );

@@ -28,7 +28,7 @@ function App() {
 
   function getRecipes() {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&number=10&sort=min-missing-ingredients&addRecipeInformation=true&fillIngredients=true&ignorePantry=flase&offset=${moreRecipes}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&number=10&sort=max-used-ingredients&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&ignorePantry=true&offset=${moreRecipes}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -56,15 +56,13 @@ function App() {
         style={{ backgroundColor: "pink", color: "black" }}
       >
         <Toolbar className="Toolbar">
-          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            <Typography
-              variant="h4"
-              className="header"
-              style={{ fontFamily: "Lobster" }}
-            >
-              Cookin' Up
-            </Typography>
-          </Link>
+          <Typography
+            variant="h4"
+            className="header"
+            style={{ fontFamily: "Lobster" }}
+          >
+            <a href=".">Cookin' Up</a>
+          </Typography>
           <Link to="/about" style={{ textDecoration: "none" }}>
             <Button variant="outlined" color="secondary">
               About
@@ -76,9 +74,13 @@ function App() {
       <Container maxWidth="sm">
         <Grow in={true} appear={true} timeout="auto">
           <Paper className="form" elevation={20} style={{ height: "30em" }}>
-            <Typography variant="h5" align="center" style={{ fontFamily: "Rock Salt" }}>
-              Enter your ingredients separated by comma (eg. "first ingredient, second,
-              etc."):
+            <Typography
+              variant="h5"
+              align="center"
+              style={{ fontFamily: "Rock Salt" }}
+            >
+              Enter your cooking ingredients separated by comma (eg. "first ingredient,
+              second, etc."):
             </Typography>
             <TextField
               fullWidth

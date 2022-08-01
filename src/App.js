@@ -40,7 +40,7 @@ function App() {
         console.log(data);
       })
       .catch(() => {
-        console.log("error");
+        console.log("error: too many requests");
       });
   }
 
@@ -206,7 +206,7 @@ function App() {
               label="First ingredient, second ingredient, etc..."
               variant="outlined"
               color="secondary"
-              size="large"
+              size="medium"
               style={{ margin: "1em 0" }}
               onChange={handleTextFieldChange}
               onKeyPress={handleKeyPress}

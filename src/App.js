@@ -15,8 +15,6 @@ import {
   FormControlLabel,
   FormControl,
   FormLabel,
-  FormGroup,
-  Switch,
 } from "@material-ui/core";
 import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
 import "./App.css";
@@ -28,14 +26,12 @@ function App() {
   const [recipes, setRecipes] = useState(null);
   const [ingredients, setIngredients] = useState("");
   const [moreRecipes, setMoreRecipes] = useState(0);
-
-  function handleChange(e) {
-    setIngredients(e.target.value);
-  }
+  const [dietType, setDietType] = useState("");
+  const [mealType, setMealType] = useState("");
 
   function getRecipes() {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&number=12&sort=max-used-ingredients&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&addRecipeNutrition=true&ignorePantry=true&offset=${moreRecipes}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&diet=${dietType}&type=${mealType}&number=12&sort=max-used-ingredients&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&addRecipeNutrition=true&ignorePantry=true&offset=${moreRecipes}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -46,6 +42,18 @@ function App() {
       .catch(() => {
         console.log("error");
       });
+  }
+
+  function handleTextFieldChange(e) {
+    setIngredients(e.target.value);
+  }
+
+  function handleDietTypeChange(e) {
+    setDietType(e.target.value);
+  }
+
+  function handleMealType(e) {
+    setMealType(e.target.value);
   }
 
   function handleKeyPress(e) {
@@ -71,7 +79,11 @@ function App() {
             <a href=".">Cookin' Up</a>
           </Typography>
           <Link to="/about" style={{ textDecoration: "none" }}>
-            <Button variant="outlined" color="secondary" style={{fontFamily: "Rock Salt"}}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              style={{ fontFamily: "Rock Salt" }}
+            >
               About
             </Button>
           </Link>
@@ -84,9 +96,11 @@ function App() {
             <Typography
               variant="h6"
               align="center"
-              style={{ marginBottom: '0.7em', fontFamily: "Rock Salt"}}
+              style={{ marginBottom: "1em", fontFamily: "Rock Salt" }}
             >
-              Hi! Choose your diet and meal type, enter cooking ingredients that you want to use, hit the red button and see what you can cook with them!
+              Hi! Choose your diet and meal type, enter cooking ingredients that
+              you want to use, hit the red button and see what you can cook with
+              them!
             </Typography>
             <FormControl>
               <FormLabel id="diet-type-radio">Diet type</FormLabel>
@@ -94,7 +108,8 @@ function App() {
                 row
                 aria-labelledby="diet-type-radio"
                 name="diet-row-radio-buttons-group"
-                defaultValue='regular'
+                defaultValue="regular"
+                onChange={handleDietTypeChange}
               >
                 <FormControlLabel
                   value="regular"
@@ -111,15 +126,21 @@ function App() {
                   control={<Radio />}
                   label="Vegan"
                 />
+                <FormControlLabel
+                  value="gluten free"
+                  control={<Radio />}
+                  label="Gluten free"
+                />
               </RadioGroup>
             </FormControl>
-            <FormControl style={{ marginBottom: '0.2em' }}>
+            <FormControl style={{ marginBottom: "0.5em" }}>
               <FormLabel id="meal-type-radio">Meal type</FormLabel>
               <RadioGroup
                 row
                 aria-labelledby="meal-type-radio"
                 name="meal-row-radio-buttons-group"
-                defaultValue='random'
+                defaultValue=""
+                onChange={handleMealType}
               >
                 <FormControlLabel
                   value="main course"
@@ -176,16 +197,9 @@ function App() {
                   control={<Radio />}
                   label="Drink"
                 />
-                <FormControlLabel
-                  value="random"
-                  control={<Radio />}
-                  label="Random"
-                />
+                <FormControlLabel value="" control={<Radio />} label="Random" />
               </RadioGroup>
             </FormControl>
-            <FormGroup>
-              <FormControlLabel control={<Switch />} label="Gluten free" />
-            </FormGroup>
             <TextField
               fullWidth
               id="outlined-basic"
@@ -193,8 +207,8 @@ function App() {
               variant="outlined"
               color="secondary"
               size="large"
-              style={{ marginTop: "1em" }}
-              onChange={handleChange}
+              style={{ margin: "1em 0" }}
+              onChange={handleTextFieldChange}
               onKeyPress={handleKeyPress}
             />
             <Button
@@ -210,8 +224,8 @@ function App() {
           </Paper>
         </Grow>
       </Container>
-      
-<div className='divider'></div>
+
+      <div className="divider"></div>
 
       <div className="recipesList" id="list-top">
         {recipes && <RecipesList recipes={recipes} />}
@@ -227,7 +241,7 @@ function App() {
             color="secondary"
             size="large"
             href="#list-top"
-            style={{ marginBottom: "3em", fontFamily: "Rock Salt"}}
+            style={{ marginBottom: "3em", fontFamily: "Rock Salt" }}
           >
             Get even more recipes!
           </Button>

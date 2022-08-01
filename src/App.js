@@ -10,6 +10,13 @@ import {
   Container,
   TextField,
   Grow,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+  FormGroup,
+  Switch,
 } from "@material-ui/core";
 import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
 import "./App.css";
@@ -28,7 +35,7 @@ function App() {
 
   function getRecipes() {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&number=10&sort=max-used-ingredients&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&ignorePantry=true&offset=${moreRecipes}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&number=12&sort=max-used-ingredients&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&addRecipeNutrition=true&ignorePantry=true&offset=${moreRecipes}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -59,12 +66,12 @@ function App() {
           <Typography
             variant="h4"
             className="header"
-            style={{ fontFamily: "Lobster" }}
+            style={{ fontFamily: "Rock Salt" }}
           >
             <a href=".">Cookin' Up</a>
           </Typography>
           <Link to="/about" style={{ textDecoration: "none" }}>
-            <Button variant="outlined" color="secondary">
+            <Button variant="outlined" color="secondary" style={{fontFamily: "Rock Salt"}}>
               About
             </Button>
           </Link>
@@ -73,18 +80,116 @@ function App() {
 
       <Container maxWidth="sm">
         <Grow in={true} appear={true} timeout="auto">
-          <Paper className="form" elevation={20} style={{ height: "30em" }}>
+          <Paper className="form" elevation={20}>
             <Typography
-              variant="h5"
+              variant="h6"
               align="center"
-              style={{ fontFamily: "Rock Salt" }}
+              style={{ marginBottom: '0.7em', fontFamily: "Rock Salt"}}
             >
-              Enter your cooking ingredients separated by comma (eg. "first ingredient,
-              second, etc."):
+              Hi! Choose your diet and meal type, enter cooking ingredients that you want to use, hit the red button and see what you can cook with them!
             </Typography>
+            <FormControl>
+              <FormLabel id="diet-type-radio">Diet type</FormLabel>
+              <RadioGroup
+                row
+                aria-labelledby="diet-type-radio"
+                name="diet-row-radio-buttons-group"
+                defaultValue='regular'
+              >
+                <FormControlLabel
+                  value="regular"
+                  control={<Radio />}
+                  label="Regular"
+                />
+                <FormControlLabel
+                  value="vegetarian"
+                  control={<Radio />}
+                  label="Vegetarian"
+                />
+                <FormControlLabel
+                  value="vegan"
+                  control={<Radio />}
+                  label="Vegan"
+                />
+              </RadioGroup>
+            </FormControl>
+            <FormControl style={{ marginBottom: '0.2em' }}>
+              <FormLabel id="meal-type-radio">Meal type</FormLabel>
+              <RadioGroup
+                row
+                aria-labelledby="meal-type-radio"
+                name="meal-row-radio-buttons-group"
+                defaultValue='random'
+              >
+                <FormControlLabel
+                  value="main course"
+                  control={<Radio />}
+                  label="Main course"
+                />
+                <FormControlLabel
+                  value="soup"
+                  control={<Radio />}
+                  label="Soup"
+                />
+                <FormControlLabel
+                  value="side dish"
+                  control={<Radio />}
+                  label="Side dish"
+                />
+                <FormControlLabel
+                  value="salad"
+                  control={<Radio />}
+                  label="Salad"
+                />
+                <FormControlLabel
+                  value="sauce"
+                  control={<Radio />}
+                  label="Sauce"
+                />
+                <FormControlLabel
+                  value="dessert"
+                  control={<Radio />}
+                  label="Dessert"
+                />
+                <FormControlLabel
+                  value="appetizer"
+                  control={<Radio />}
+                  label="Appetizer"
+                />
+                <FormControlLabel
+                  value="breakfast"
+                  control={<Radio />}
+                  label="Breakfast"
+                />
+                <FormControlLabel
+                  value="snack"
+                  control={<Radio />}
+                  label="Snack"
+                />
+                <FormControlLabel
+                  value="beverage"
+                  control={<Radio />}
+                  label="Beverage"
+                />
+                <FormControlLabel
+                  value="drink"
+                  control={<Radio />}
+                  label="Drink"
+                />
+                <FormControlLabel
+                  value="random"
+                  control={<Radio />}
+                  label="Random"
+                />
+              </RadioGroup>
+            </FormControl>
+            <FormGroup>
+              <FormControlLabel control={<Switch />} label="Gluten free" />
+            </FormGroup>
             <TextField
               fullWidth
               id="outlined-basic"
+              label="First ingredient, second ingredient, etc..."
               variant="outlined"
               color="secondary"
               size="large"
@@ -98,13 +203,15 @@ function App() {
               color="secondary"
               startIcon={<DinnerDiningIcon fontSize="large" />}
               size="large"
-              style={{ margin: "1em 0 1em 0" }}
+              style={{ margin: "1em 0 1em 0", fontFamily: "Rock Salt" }}
             >
               Let's cook!
             </Button>
           </Paper>
         </Grow>
       </Container>
+      
+<div className='divider'></div>
 
       <div className="recipesList" id="list-top">
         {recipes && <RecipesList recipes={recipes} />}
@@ -120,7 +227,7 @@ function App() {
             color="secondary"
             size="large"
             href="#list-top"
-            style={{ marginBottom: "3em" }}
+            style={{ marginBottom: "3em", fontFamily: "Rock Salt"}}
           >
             Get even more recipes!
           </Button>

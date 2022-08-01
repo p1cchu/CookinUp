@@ -25,13 +25,13 @@ export default function About() {
             <Typography
               variant="h4"
               className="header"
-              style={{ fontFamily: "Lobster" }}
+              style={{ fontFamily: "Rock Salt" }}
             >
               Cookin' Up
             </Typography>
           </Link>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <Button variant="outlined" color="secondary">
+            <Button variant="outlined" color="secondary" style={{fontFamily: "Rock Salt"}}>
               Home
             </Button>
           </Link>
@@ -57,7 +57,7 @@ export default function About() {
                 variant="body1"
                 color="initial"
                 align="justify"
-                style={{ paddingBottom: "1em", fontFamily: "Beth Ellen"}}
+                style={{ paddingBottom: "1em"}}
               >
                 Cookin' Up is meant to help you find recipes that wil use
                 ingredients you already have in your home. Just place your
@@ -75,7 +75,7 @@ export default function About() {
                 variant="body2"
                 color="initial"
                 align="center"
-                style={{ paddingBottom: "1em", fontFamily: "Beth Ellen"}}
+                style={{ paddingBottom: "1em"}}
               >
                 This app is made for educational purpose only, it's not meant
                 for any commercial use.

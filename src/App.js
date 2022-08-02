@@ -17,7 +17,7 @@ import {
   FormLabel,
 } from "@material-ui/core";
 import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
-import "./App.css";
+import "./App.scss";
 import RecipesList from "./RecipesList";
 
 function App() {

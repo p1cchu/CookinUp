@@ -40,7 +40,7 @@ function App() {
         console.log(data);
       })
       .catch(() => {
-        console.log("error: too many requests");
+        alert("Error: too many requests, API rate limit reached :(. Please try again later.");
       });
   }
 

@@ -4,8 +4,8 @@ import {
   CardContent,
   Card,
   CardMedia,
-  Link,
   Grow,
+  Button
 } from "@material-ui/core";
 import Popup from "reactjs-popup";
 import "./popup.scss";
@@ -14,11 +14,6 @@ export default function Recipe({ recipe }) {
   return (
     <>
       <Grow in={true} appear={true} timeout="auto">
-        {/* <Link */}
-        {/* href={recipe.sourceUrl} */}
-        {/* target="_blank" */}
-        {/* style={{ textDecoration: "none", color: "black" }} */}
-        {/* > */}
         <Card>
           <CardMedia component="img" image={recipe.image} />
           <CardContent>
@@ -48,8 +43,11 @@ export default function Recipe({ recipe }) {
                 })}
               </ul>
             </Typography>
+            <div className="centered-container">
             <Popup
-              trigger={<button>Show recipe</button>}
+              trigger={<Button variant="contained"
+              color="secondary" size="large"
+              style={{ fontFamily: "Rock Salt"}}>Show recipe</Button>}
               position="right center"
               modal
               nested
@@ -61,15 +59,37 @@ export default function Recipe({ recipe }) {
                   </button>
                   <div className="header"> {recipe.title} </div>
                   <div className="content">
-                    {" "}
-                    {recipe.analyzedInstructions.steps.map((el) => { return <li key={el.id}>{el.step}</li> })}
+                    <Typography
+                      variant="h6"
+                      color="initial"
+                      style={{ fontFamily: "Rock Salt" }}
+                    >
+                      Ingredients:
+                    </Typography>
+                    <Typography variant="body1" color="initial">
+                      {recipe.extendedIngredients.map((el) => {
+                        return <li key={el.id}>{el.original}</li>;
+                      })}
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      color="initial"
+                      style={{ fontFamily: "Rock Salt" }}
+                    >
+                      Recipe:
+                    </Typography>
+                    <Typography variant="body1" color="initial">
+                      {recipe.analyzedInstructions[0].steps.map((el) => {
+                        return <li key={el.number}>{el.step}</li>;
+                      })}
+                    </Typography>
                   </div>
                 </div>
               )}
             </Popup>
+            </div>
           </CardContent>
         </Card>
-        {/* </Link> */}
       </Grow>
     </>
   );

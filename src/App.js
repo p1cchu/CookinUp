@@ -40,7 +40,9 @@ function App() {
         console.log(data);
       })
       .catch(() => {
-        alert("Error: too many requests, API rate limit reached :(. Please try again later.");
+        alert(
+          "Error: too many requests, API rate limit reached :(. Please try again later."
+        );
       });
   }
 
@@ -217,6 +219,7 @@ function App() {
               color="secondary"
               startIcon={<DinnerDiningIcon fontSize="large" />}
               size="large"
+              href="#list-top"
               style={{ margin: "1em 0 1em 0", fontFamily: "Rock Salt" }}
             >
               Let's cook!

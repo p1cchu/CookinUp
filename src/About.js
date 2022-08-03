@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Typography,
   AppBar,
@@ -9,44 +9,44 @@ import {
   Container,
   Grow,
   CssBaseline,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
 export default function About() {
   return (
-    <div className="About">
+    <div className='About'>
       <CssBaseline />
 
       <AppBar
-        position="sticky"
-        style={{ backgroundColor: "pink", color: "black" }}
+        position='sticky'
+        style={{ backgroundColor: 'pink', color: 'black' }}
       >
-        <Toolbar className="Toolbar">
-          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Toolbar className='Toolbar'>
+          <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
             <Typography
-              variant="h4"
-              className="header"
-              style={{ fontFamily: "Rock Salt" }}
+              variant='h4'
+              className='header'
+              style={{ fontFamily: 'Rock Salt' }}
             >
               Cookin' Up
             </Typography>
           </Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <Button variant="outlined" color="secondary" style={{fontFamily: "Rock Salt"}}>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            <Button variant='outlined' color='secondary' style={{fontFamily: 'Rock Salt'}}>
               Home
             </Button>
           </Link>
         </Toolbar>
       </AppBar>
 
-      <div className="about-text">
-        <Container maxWidth="md">
-          <Grow in={true} appear={true} timeout="auto">
-            <Paper elevation={20} style={{ padding: "3em" }}>
+      <div className='about-text'>
+        <Container maxWidth='md'>
+          <Grow in={true} appear={true} timeout='auto'>
+            <Paper elevation={20} style={{ padding: '3em' }}>
               <Typography
-                variant="h5"
-                color="initial"
-                align="center"
-                style={{ paddingBottom: "1em", fontFamily: "Rock Salt" }}
+                variant='h5'
+                color='initial'
+                align='center'
+                style={{ paddingBottom: '1em', fontFamily: 'Rock Salt' }}
               >
                 Getting hungry? Wanna cook something but don't have any ideas?{" "}
                 <br />
@@ -54,10 +54,10 @@ export default function About() {
                 place! <br />{" "}
               </Typography>
               <Typography
-                variant="body1"
-                color="initial"
-                align="justify"
-                style={{ paddingBottom: "1em"}}
+                variant='body1'
+                color='initial'
+                align='justify'
+                style={{ paddingBottom: '1em'}}
               >
                 Cookin' Up is meant to help you find recipes that wil use
                 ingredients you already have in your home. Just place your
@@ -72,17 +72,17 @@ export default function About() {
                 click away from you!
               </Typography>
               <Typography
-                variant="body2"
-                color="initial"
-                align="center"
-                style={{ paddingBottom: "1em"}}
+                variant='body2'
+                color='initial'
+                align='center'
+                style={{ paddingBottom: '1em'}}
               >
                 This app is made for educational purpose only, it's not meant
                 for any commercial use.
               </Typography>
-              <Typography variant="body2" color="initial" align="center" style={{fontFamily: "Rock Salt"}}>
+              <Typography variant='body2' color='initial' align='center' style={{fontFamily: 'Rock Salt'}}>
                 Copyright 2022<br/>
-                <a href="http://github.com/p1cchu" target="_blank">
+                <a href='http://github.com/p1cchu' target='_blank'>
                   p1cchu
                 </a>
                 .

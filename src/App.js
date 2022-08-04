@@ -21,7 +21,8 @@ import "./App.scss";
 import RecipesList from "./RecipesList";
 
 function App() {
-  const API_KEY = ''; /* Insert here your Spoonacular API key */
+  const API_KEY =
+    "ce6473422bf44e3f8b11c98c2e751ce6"; /* Insert here your Spoonacular API key */
 
   const [recipes, setRecipes] = useState(null);
   const [ingredients, setIngredients] = useState("");
@@ -36,7 +37,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setRecipes(data);
-        setMoreRecipes(moreRecipes + 10);
+        // setMoreRecipes(moreRecipes + 10);
         console.log(data);
       })
       .catch(() => {
@@ -154,51 +155,25 @@ function App() {
                   control={<Radio />}
                   label="Soup"
                 />
-                <FormControlLabel
-                  value="side dish"
-                  control={<Radio />}
-                  label="Side dish"
-                />
+
                 <FormControlLabel
                   value="salad"
                   control={<Radio />}
                   label="Salad"
                 />
-                <FormControlLabel
-                  value="sauce"
-                  control={<Radio />}
-                  label="Sauce"
-                />
+
                 <FormControlLabel
                   value="dessert"
                   control={<Radio />}
                   label="Dessert"
                 />
-                <FormControlLabel
-                  value="appetizer"
-                  control={<Radio />}
-                  label="Appetizer"
-                />
+
                 <FormControlLabel
                   value="breakfast"
                   control={<Radio />}
                   label="Breakfast"
                 />
-                <FormControlLabel
-                  value="snack"
-                  control={<Radio />}
-                  label="Snack"
-                />
-                <FormControlLabel
-                  value="beverage"
-                  control={<Radio />}
-                  label="Beverage"
-                />
-                <FormControlLabel
-                  value="drink"
-                  control={<Radio />}
-                  label="Drink"
-                />
+
                 <FormControlLabel value="" control={<Radio />} label="Random" />
               </RadioGroup>
             </FormControl>

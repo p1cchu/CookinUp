@@ -21,7 +21,7 @@ import "./App.scss";
 import RecipesList from "./RecipesList";
 
 function App() {
-  const API_KEY = ''; /* Insert here your Spoonacular API key */
+  const API_KEY = 'ce6473422bf44e3f8b11c98c2e751ce6'; /* Insert here your Spoonacular API key */
 
   const [recipes, setRecipes] = useState(null);
   const [ingredients, setIngredients] = useState("");

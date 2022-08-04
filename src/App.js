@@ -26,18 +26,16 @@ function App() {
 
   const [recipes, setRecipes] = useState(null);
   const [ingredients, setIngredients] = useState("");
-  const [moreRecipes, setMoreRecipes] = useState(0);
   const [dietType, setDietType] = useState("");
   const [mealType, setMealType] = useState("");
 
   function getRecipes() {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&diet=${dietType}&type=${mealType}&number=12&sort=max-used-ingredients&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&addRecipeNutrition=true&ignorePantry=true&offset=${moreRecipes}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&includeIngredients=${ingredients}&diet=${dietType}&type=${mealType}&number=12&sort=max-used-ingredients&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&addRecipeNutrition=true&ignorePantry=true`
     )
       .then((response) => response.json())
       .then((data) => {
         setRecipes(data);
-        // setMoreRecipes(moreRecipes + 10);
         console.log(data);
       })
       .catch(() => {
@@ -208,23 +206,6 @@ function App() {
       <div className="recipesList" id="list-top">
         {recipes && <RecipesList recipes={recipes} />}
       </div>
-      {recipes && (
-        <div
-          className="recipesList"
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <Button
-            onClick={getRecipes}
-            variant="contained"
-            color="secondary"
-            size="large"
-            href="#list-top"
-            style={{ marginBottom: "3em", fontFamily: "Rock Salt" }}
-          >
-            Get even more recipes!
-          </Button>
-        </div>
-      )}
     </div>
   );
 }

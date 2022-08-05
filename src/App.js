@@ -205,9 +205,6 @@ function App() {
 
       <div className="recipesList" id="list-top">
         {recipes && <RecipesList recipes={recipes} />}
-        {recipes === [] && <Paper><Typography variant="h6"
-              align="center"
-              style={{ marginBottom: "1em", fontFamily: "Rock Salt" }}>No results were found.</Typography></Paper>}
       </div>
     </div>
   );

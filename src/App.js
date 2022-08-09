@@ -97,11 +97,10 @@ function App() {
             <Typography
               variant="h6"
               align="center"
-              style={{ marginBottom: "1em", fontFamily: "Rock Salt" }}
+              style={{ marginBottom: "1em" }}
             >
               Hi! Choose your diet and meal type, enter cooking ingredients that
-              you want to use, hit the red button and see what you can cook with
-              them!
+              you want to use, hit the red button and see what you can cook!
             </Typography>
             <FormControl>
               <FormLabel id="diet-type-radio">Diet type</FormLabel>

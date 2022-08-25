@@ -79,7 +79,7 @@ export default function Recipe({ recipe }) {
                       Recipe:
                     </Typography>
                     <Typography variant="body1" color="initial">
-                      {recipe.analyzedInstructions[0].steps.map((el) => {
+                      {recipe.analyzedInstructions[0]?.steps.map((el) => {
                         return <li key={el.number}>{el.step}</li>;
                       })}
                     </Typography>
